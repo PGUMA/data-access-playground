@@ -1,7 +1,19 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 func main() {
-	fmt.Print("Hello Go Dev Template")
+	readFile("./data/file/sample.txt")
+}
+
+func readFile(fp string) {
+	b, err := os.ReadFile(fp)
+	if err != nil {
+		fmt.Printf("%v", err)
+	} else {
+		fmt.Println(string(b))
+	}
 }
